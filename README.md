@@ -2,54 +2,56 @@
 
 ## Number 1
 
-Running file .sql tersebut dengan SSMS atau aplikasi lainnya.
+Running file ".sql" tersebut dengan SSMS atau aplikasi sejenisnya.
 
-dengan asumsi databasenya sudah ada, jadi tinggal query saja.
+dengan asumsi database dan tabel sudah ada, jadi tinggal query saja.
 
 ## Number 2
 
-### Connect to MySQL
+### Run in Local With MySql DB
 
-database MySQL belum di publish.
+#### Setup MySQL Database
 
-jika ingin mencoba di local silahkan buat table dengan struktur seperti pada file "note.sql"
+1. Create MySQL Database dengan nama "movie_db"
 
-untuk credential database harap disesuaikan dengan file "db.config.js"
+2. Create Table dengan nama "movies", query sudah disediakan pada file "note.sql"
 
-### Get Data From Databases
+3. Input Password root untuk connect MySQL ke dalam file : "db.config.js"
 
-service sudah coba di publish ke public url : "https://get-movies-db.herokuapp.com/"
+#### Run Express JS
 
-namun masih error dan tidak bisa diakses.
+1. pastikan directory sudah di dalam folder "2"
 
-Jadi untuk sementara akses dari local dengan cara sebagai berikut :
+2. run "npm install" in terminal
 
-0. pastikan directory sudah di dalam folder "2"
+3. run "npm start" in terminal
 
-1. run "npm install" in terminal
+4. Jika sudah berhasil running dan connect ke port 8080, silahkan hit "API url" seperti dibawah ini dari browser ataupun POSTMAN.
 
-2. run "npm start" in terminal
+#### Get Movies By Title (local)
 
-3. Jika sudah berhasil running dan connect ke port 8080, silahkan hit "API url" seperti dibawah ini dari browser ataupun POSTMAN.
-
-#### Get Movies By Title
-
-"http://localhost:8080/api/movies/search?apiKey=aee82e3a&title=batman&pageNumber=1"
+<http://localhost:8080/api/movies/search?apiKey=aee82e3a&title=batman&pageNumber=1>
 
 parameter : apiKey, title, pageNumber
 
-#### Get Movies Detail By ImdbId
+#### Get Movies Detail By ImdbId (local)
 
-"http://localhost:8080/api/movies/detail?apiKey=aee82e3a&i=tt0372784"
+<http://localhost:8080/api/movies/detail?apiKey=aee82e3a&i=tt0372784>
 
 param : apiKey, i (imdb Id from List movie)
 
+### Run from Public API (without connect MySQL DB)
+
+Url HerokuApp: <https://get-movies-db.herokuapp.com/>
+
+Url getMoviesByTittle : <https://get-movies-db.herokuapp.com/api/movies/search?apiKey=aee82e3a&title=batman&pageNumber=1>
+
+Url getMoviesDetailById : <https://get-movies-db.herokuapp.com/api/movies/detail?apiKey=aee82e3a&i=tt0372784>
+
 ## Number 3
 
-run "node script.js"
-hasil dapat dilihat pada "console.log"
+run "node script.js", hasil dapat dilihat pada "console.log"
 
 ## Number 4
 
-run "node index.js"
-hasil dapat dilihat pada "console.log"
+run "node index.js", hasil dapat dilihat pada "console.log"
