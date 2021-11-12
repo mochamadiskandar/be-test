@@ -1,22 +1,18 @@
-// const express = require('express')
-// const cors = require('cors')
 const fetch = require('node-fetch')
 
-function fetchMovies() {
-  const APIKey = 'aee82e3a'
-  const title = 'avengers'
-  const pageNumber = 1
+function fetchMovies(query, url) {
+  let str = `http://www.omdbapi.com/?apikey=${query.apiKey}&s=${query.title}&page=${query.pageNumber}`
 
-  return fetch(
-    // ` http://www.omdbapi.com/?i=tt3896198&apikey=${myAPIKey}&t=${params.title}&page2`,
-    `http://www.omdbapi.com/?apikey=${APIKey}&s=${title}&page=${pageNumber}`,
-  )
+  if (url.includes('/detail')) {
+    str = `http://www.omdbapi.com/?apikey=${query.apiKey}&i=${query.i}`
+  }
+  return fetch(str)
 }
 
-exports.getMoviesFromAPI = async (result) => {
-  const response = await fetchMovies()
-  result = await response.json()
+exports.getMoviesFromAPI = async (query, url) => {
+  const response = await fetchMovies(query, url)
+  const result = await response.json()
 
-  console.log('Movies:', result)
+  // console.log('Movies:', result)
   return result
 }
