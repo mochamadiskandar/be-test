@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS `movies` (
+id int(6) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+date_time DATETIME NOT NULL,
+api_endpoint varchar(255) NOT NULL,
+parameter varchar(255) NOT NULL)
+ENGINE=InnoDB DEFAULT CHARSET=utf8;
